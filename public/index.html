@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>B. There.</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway|Roboto&display=swap" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<title>B. There. </title>
+</head>
+
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-body">
+           <strong><h1>B. There.</h1></strong>
+        </div>
+        </section>
+        <div class="searchbox">
+            <header><h7>Search Parameters</h7></header>
+            <form>
+                <div class="form-group">
+                    <label for="searchterm">Search Events</label>
+                    <input type="search" class="form-control" id="searchInput" aria-describedby="searchTerm">
+                </div>
+                <div class="retrecords">
+                    <label for="categories">Category:</label>
+                    <select class="custom-select">
+                        <option selected>Select Category</option>
+                        <option value="1">Music</option>
+                        <option value="2">Food</option>
+                    </select>
+                </div>
+                <div class="retrecords">
+                    <label for="retrecordscrit">Number of Records to Retrieve:</label>
+                    <select class="custom-select">
+                        <option selected>Select number of records</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="begin-date">Start Date</label>
+                    <input type="datetime-local" class="form-control" id="datetime-local">
+                </div>
+                <div class="form-group">
+                    <label for="end-date">End Date</label>
+                    <input type="datetime-local" class="form-control" id="datetime-local">
+                </div>
+                <button type="search" class="btn btn-primary" id="searchBtn"><i class="fa fa-search"></i>
+                    <h8> Search</h8></i>
+                </button>
+                <button type="clear" class="btn btn-primary" id="clearBtn"><i class="fa fa-trash">
+                        <h8> Clear Results</h8>
+                    </i></button>
+            </form>
+        </div>  
+        <div class="footer">
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

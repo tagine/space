@@ -1,4 +1,27 @@
+* {
+  font-family: "Roboto", "Oswald", "Raleway", sans-serif;
+}
+
+.logo {
+  fill: #4E2F67;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.section {
+  background-color: fuchsia;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  background-color: orange;
+}
+
