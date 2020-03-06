@@ -14,6 +14,9 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     },
+    description: {
+      type: DataTypes.TEXT,
+    },
     time: {
       type: DataTypes.STRING
     },
