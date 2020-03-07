@@ -16,6 +16,7 @@ function showSearch() {
 
       for (let i = 0; i < oData.events.event.length; i++) {
         console.log(oData.events.event[i])
+        // console.log(oData.events.event[i].id)
 
         let eventUrl = oData.events.event[i].url
         let startTime = oData.events.event[i].start_time
@@ -24,6 +25,7 @@ function showSearch() {
         let cityLocation = oData.events.event[i].city_name
         let eventTitle = oData.events.event[i].title
         let imgTemplate = ""
+        let apiId = oData.events.event[i].id
 
         if (
           oData.events.event[i].image &&
@@ -51,7 +53,7 @@ function showSearch() {
 
         $("#results").append(
           `
-
+          <div id="${apiId}">
              ${imgTemplate}            
              <p><b>City:</b> ${cityLocation}</p>
              <p><b>Event Title:</b> ${eventTitle}<p>
@@ -59,11 +61,42 @@ function showSearch() {
              <p><b>Date:</b> ${formattedDate}</p>
              <p><b>Event URL:</b> <a href="${eventUrl}" target="_blank">${eventUrl} </a></p>
              <button class="add">Add Event</button>
-             <hr>`
+          </div>
+          <hr>`
         )
       }
+      $(".add").on("click", function (event) {
+        event.preventDefault();
+        // console.log("add click");
+        const targetDivId = $(this).parent().attr('id');
+        // console.log(targetDivId);
+        // console.log($(`#${targetDivId}`));
+        addEvent(targetDivId);
+      });
     }
   )
+}
+// http://api.eventful.com/rest/events/get?...&id=E0-001-000278174-6
+function addEvent(targetId) {
+  EVDB.API.call(
+    "/events/get",
+    {
+      app_key: "x8RFCpSQ55HDvQCp",
+      id: targetId
+    },
+    function(oData) {
+      console.log("called addEvent")
+      // console.log(oData);
+      const newEvent = {
+        title: oData.title,
+        date: oData.start_time,
+        description: oData.description,
+        time: oData.start_time,
+        location: oData.city,
+        link: oData.url
+      }
+      console.log(newEvent);
+    })
 }
 
 $("#button").on("click", function(event) {
