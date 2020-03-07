@@ -1,19 +1,27 @@
 $(function () {
   $(".add").on("click", function (event) {
-    // create event object to be stored?
     event.preventDefault();
-    console.log("add click");
-    console.log(event.target);
-    // const newEvent = {
-    //   title:
-    //   description:
-    //   date:
-    //   location:
-    //   time:
-    // }
-
-    //POST request
-
+    let targetDivId = $(this).parent().attr('id');
+    EVDB.API.call(
+      "/events/get",
+      {
+        app_key: "x8RFCpSQ55HDvQCp",
+        id: targetDivId
+      },
+      function (oData) {
+        console.log("called addEvent")
+        console.log(oData);
+        const newEvent = {
+          title: oData.title,
+          date: oData.start_time,
+          description: oData.description,
+          time: oData.start_time,
+          location: oData.city,
+          link: oData.url,
+          imgUrl: images.image.thumb.url
+        }
+        console.log(newEvent);
+      })
   });
 
 
