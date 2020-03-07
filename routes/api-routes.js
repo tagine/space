@@ -108,6 +108,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/events", (req, res) => {
+    console.log("hit post route");
     db.Event.create(req.body).then((dbEvent) => {
       res.json(dbEvent);
     });

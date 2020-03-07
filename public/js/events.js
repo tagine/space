@@ -1,5 +1,6 @@
 $(function () {
-  $(".add").on("click", function (event) {
+  $(document).on("click", ".add", function (event) {
+    console.log("clicked add!")
     event.preventDefault();
     let targetDivId = $(this).parent().attr('id');
     EVDB.API.call(
@@ -10,19 +11,29 @@ $(function () {
       },
       function (oData) {
         console.log("called addEvent")
-        console.log(oData);
+        // console.log(oData);
         const newEvent = {
           title: oData.title,
           date: oData.start_time,
           description: oData.description,
           time: oData.start_time,
           location: oData.city,
-          link: oData.url,
-          imgUrl: images.image.thumb.url
+          link: oData.url
+          // imgUrl: images.image.thumb.url
         }
         console.log(newEvent);
+        postEvent(newEvent);
       })
   });
+
+  function postEvent(event) {
+    console.log("entered postEvent");
+    $.post("http://localhost:8080/api/events", event, function() {
+      // window.location.href = "/blog";
+      console.log("successfully posted")
+      // window redirect
+    });
+  }
 
 
   $(".clear").on("click", (event) => {

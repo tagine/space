@@ -65,39 +65,39 @@ function showSearch() {
           <hr>`
         )
       }
-      $(".add").on("click", function (event) {
-        event.preventDefault();
-        // console.log("add click");
-        const targetDivId = $(this).parent().attr('id');
-        // console.log(targetDivId);
-        // console.log($(`#${targetDivId}`));
-        addEvent(targetDivId);
-      });
+      // $(".add").on("click", function (event) {
+      //   event.preventDefault();
+      //   // console.log("add click");
+      //   const targetDivId = $(this).parent().attr('id');
+      //   // console.log(targetDivId);
+      //   // console.log($(`#${targetDivId}`));
+      //   addEvent(targetDivId);
+      // });
     }
   )
 }
 // http://api.eventful.com/rest/events/get?...&id=E0-001-000278174-6
-function addEvent(targetId) {
-  EVDB.API.call(
-    "/events/get",
-    {
-      app_key: "x8RFCpSQ55HDvQCp",
-      id: targetId
-    },
-    function(oData) {
-      console.log("called addEvent")
-      // console.log(oData);
-      const newEvent = {
-        title: oData.title,
-        date: oData.start_time,
-        description: oData.description,
-        time: oData.start_time,
-        location: oData.city,
-        link: oData.url
-      }
-      console.log(newEvent);
-    })
-}
+// function addEvent(targetId) {
+//   EVDB.API.call(
+//     "/events/get",
+//     {
+//       app_key: "x8RFCpSQ55HDvQCp",
+//       id: targetId
+//     },
+//     function(oData) {
+//       console.log("called addEvent")
+//       // console.log(oData);
+//       const newEvent = {
+//         title: oData.title,
+//         date: oData.start_time,
+//         description: oData.description,
+//         time: oData.start_time,
+//         location: oData.city,
+//         link: oData.url
+//       }
+//       console.log(newEvent);
+//     })
+// }
 
 $("#button").on("click", function(event) {
   event.preventDefault()
