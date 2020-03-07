@@ -58,7 +58,7 @@ function showSearch() {
              <p><b>Event Description: </b>${eventDescription}</p>
              <p><b>Date:</b> ${formattedDate}</p>
              <p><b>Event URL:</b> <a href="${eventUrl}" target="_blank">${eventUrl} </a></p>
-             <button>Add Event</button>
+             <button class="add">Add Event</button>
              <hr>`
         )
       }
