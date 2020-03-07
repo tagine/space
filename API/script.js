@@ -1,6 +1,7 @@
 function showSearch() {
   let city = document.getElementById("city").value
   let keyword = document.getElementById("keyword").value
+  let date = document.getElementById("dates").value
 
   EVDB.API.call(
     "/events/search",
@@ -8,7 +9,7 @@ function showSearch() {
       app_key: "x8RFCpSQ55HDvQCp",
       location: city,
       keywords: keyword,
-      date: "This Week",
+      date: date,
     },
     function(oData) {
       console.log(oData)
