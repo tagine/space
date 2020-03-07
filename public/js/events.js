@@ -1,6 +1,10 @@
 $(function () {
   $(".add").on("click", function (event) {
     // create event object to be stored?
+    event.preventDefault();
+    const newEvent = {
+      
+    }
 
     //POST request
 
