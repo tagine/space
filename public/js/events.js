@@ -2,9 +2,15 @@ $(function () {
   $(".add").on("click", function (event) {
     // create event object to be stored?
     event.preventDefault();
-    const newEvent = {
-      
-    }
+    console.log("add click");
+    console.log(event.target);
+    // const newEvent = {
+    //   title:
+    //   description:
+    //   date:
+    //   location:
+    //   time:
+    // }
 
     //POST request
 
