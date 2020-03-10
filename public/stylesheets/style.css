@@ -1,4 +1,83 @@
+* {
+  font-family: "Roboto", "Oswald", "Raleway", sans-serif;
+}
+
+.logo {
+  fill: #4E2F67;
+}
+
+.h2 {
+  color: #4E2F67;
+  border-bottom: #B5823E;
+}
+
+.nav-wrapper {
+  background-color: #B5823E;
+  border-color: #4E2F67;
+  margin-right: 200px;
+}
+
+.nav {
+  background-color: #B5823E!important ;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
+}
+
+#svg, #brand-logo {
+  fill: #4E2F67;
+}
+
+/* .section {
+  background-color: fuchsia;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+} */
+
+.container {
+  /* background-color: #4E2F67; */
+  padding: 10px;
+}
+
+h1 {
+  box-shadow: 5px 10px #B5823E;
+  color: #4E2F67;
+  font-family: "Oswald", sans-serif;
+}
+
+#searchBtn, #clearBtn, #addBtn {
+  background-color: slategray;
+  border-color: grey;
+}
+
+.searchbox, .card-container {
+  border-style: solid;
+  border-color: #B5823E;
+  border-width: 5px;
+  margin: 10px;
+}
+
+.active, input [type=search]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px pink;
+  box-shadow: 1px #4E2F67 !important;
+}
+    
+
+#results {
+  background-color: teal;
+  border-style: dotted;
+  padding: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  padding-top: 60px;
+  background-color: #B5823E;
 }
