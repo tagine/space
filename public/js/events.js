@@ -28,6 +28,7 @@ $(function () {
 
   function postEvent(event) {
     console.log("entered postEvent");
+    // post route will need to be changed for heroku deployment
     $.post("http://localhost:8080/api/events", event, function() {
       // window.location.href = "/blog";
       console.log("successfully posted")
