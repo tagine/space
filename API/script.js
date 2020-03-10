@@ -21,7 +21,8 @@ function showSearch() {
         let eventUrl = oData.events.event[i].url
         let startTime = oData.events.event[i].start_time
         let momentStartTime = moment(startTime)
-        let formattedDate = momentStartTime.format("MMMM Do, YYYY. h:mm a.")
+        let formattedDate = momentStartTime.format("MMMM Do, YYYY.")
+        let formattedTime = momentStartTime.format(" h:mm a.")
         let cityLocation = oData.events.event[i].city_name
         let eventTitle = oData.events.event[i].title
         let imgTemplate = ""
@@ -59,6 +60,7 @@ function showSearch() {
              <p><b>Event Title:</b> ${eventTitle}<p>
              <p><b>Event Description: </b>${eventDescription}</p>
              <p><b>Date:</b> ${formattedDate}</p>
+             <p><b>Time:</b> ${formattedTime}</p>
              <p><b>Event URL:</b> <a href="${eventUrl}" target="_blank">${eventUrl} </a></p>
              <button class="add">Add Event</button>
           </div>
