@@ -1,12 +1,14 @@
+// const OrderFriend = require("../../library/OrderFriend.js");
+
 $(document).ready(function () {
-  const OrderFriend = require("../../library/OrderFriend.js");
   const orderFriend = new OrderFriend;
 
   const getCalendar = () => {
     // should hit api-route get to access db?
     // ajax
      $.get("/api/events", function (data) {
-      orderFriend.order(data);
+      // orderFriend.order(data);
+      console.log(data);
       // logic within here to display the calendar?
     });
   }
