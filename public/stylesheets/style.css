@@ -3,22 +3,22 @@
 }
 
 .logo {
-  fill: #4E2F67;
+  fill: #4e2f67;
 }
 
 .h2 {
-  color: #4E2F67;
-  border-bottom: #B5823E;
+  color: #4e2f67;
+  border-bottom: #b5823e;
 }
 
 .nav-wrapper {
-  background-color: #B5823E;
-  border-color: #4E2F67;
+  background-color: #b5823e;
+  border-color: #4e2f67;
   margin-right: 200px;
 }
 
 .nav {
-  background-color: #B5823E!important ;
+  background-color: #b5823e !important ;
 }
 
 form.signup,
@@ -26,8 +26,9 @@ form.login {
   margin-top: 50px;
 }
 
-#svg, #brand-logo {
-  fill: #4E2F67;
+#svg,
+#brand-logo {
+  fill: #4e2f67;
 }
 
 /* .section {
@@ -46,38 +47,45 @@ form.login {
 }
 
 h1 {
-  box-shadow: 5px 10px #B5823E;
-  color: #4E2F67;
+  box-shadow: 5px 10px #b5823e;
+  color: #4e2f67;
   font-family: "Oswald", sans-serif;
 }
 
-#searchBtn, #clearBtn, #addBtn {
+#searchBtn,
+#clearBtn,
+#addBtn {
   background-color: slategray;
   border-color: grey;
 }
 
-.searchbox, .card-container {
+.searchbox,
+.card-container {
   border-style: solid;
-  border-color: #B5823E;
+  border-color: #b5823e;
   border-width: 5px;
   margin: 10px;
 }
 
-.active, input [type=search]:not(.browser-default):focus:not([readonly]) {
+.active,
+input [type="search"]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px pink;
-  box-shadow: 1px #4E2F67 !important;
+  box-shadow: 1px #4e2f67 !important;
 }
-    
 
 #results {
-  background-color: teal;
-  border-style: dotted;
-  padding: 10px;
+  border-style: solid;
+  border-color: #b5823e;
+  border-width: 5px;
+  margin: 10px;
+  display: inline-block;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .footer {
   text-align: center;
   padding: 10px;
   padding-top: 60px;
-  background-color: #B5823E;
+  background-color: #b5823e;
 }
