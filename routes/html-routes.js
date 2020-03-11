@@ -29,8 +29,9 @@ module.exports = function (app) {
   });
 
   // search page
-  app.get("/search", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/search.html"));
+  // isAuthenticated????????
+  app.get("/index", isAuthenticated, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   // results page

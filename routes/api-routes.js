@@ -52,7 +52,7 @@ module.exports = function (app) {
   });
 
   // events routes
-  app.get("/", (req, res) => {
+  app.get("/events", (req, res) => {
     db.Event.findAll({
     }).then((dbEvent) => {
       res.json(dbEvent);
@@ -66,7 +66,6 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then((dbEvent) => {
-      // console.log(dbEvent);
       res.json(dbEvent);
     });
   });
@@ -78,7 +77,6 @@ module.exports = function (app) {
         title: req.params.title
       }
     }).then((dbEvent) => {
-      // console.log(dbEvent);
       res.json(dbEvent);
     });
   });
@@ -90,7 +88,6 @@ module.exports = function (app) {
         category: req.params.category
       }
     }).then((dbEvent) => {
-      // console.log(dbEvent);
       res.json(dbEvent);
     });
   });
@@ -102,7 +99,6 @@ module.exports = function (app) {
         location: req.params.location
       }
     }).then((dbEvent) => {
-      // console.log(dbEvent);
       res.json(dbEvent);
     });
   });
