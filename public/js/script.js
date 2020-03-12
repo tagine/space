@@ -1,9 +1,21 @@
-$(function () {
-
+$(function() {
   function showSearch() {
     let city = document.getElementById("city").value
     let keyword = document.getElementById("keyword").value
-    let date = document.getElementById("dates").value
+    // let date = document.getElementById("dates").value
+    let startDate = document.getElementById("startDate").value
+    let startYear = startDate.substring(0, 4)
+    let startMonth = startDate.substring(5, 7)
+    let startDay = startDate.slice(8)
+    startDate = startYear + startMonth + startDay + "00-"
+
+    let endDate = document.getElementById("endDate").value
+    let endYear = endDate.substring(0, 4)
+    let endMonth = endDate.substring(5, 7)
+    let endDay = endDate.slice(8)
+    endDate = endYear + endMonth + endDay + "00"
+
+    let dateRange = startDate + endDate
 
     EVDB.API.call(
       "/events/search",
@@ -11,9 +23,10 @@ $(function () {
         app_key: "x8RFCpSQ55HDvQCp",
         location: city,
         keywords: keyword,
-        date: date,
+        date: dateRange,
       },
-      function (oData) {
+
+      function(oData) {
         // console.log(oData)
 
         for (let i = 0; i < oData.events.event.length; i++) {
@@ -55,7 +68,7 @@ $(function () {
 
           $("#results").append(
             `<div class="row" id=${apiId}>
-          <div class="col s12 m6">
+          <div class="col s6 offset-s3">
             <div class="card">
               <div class="card-image">
               ${imgTemplate} 
@@ -84,18 +97,9 @@ $(function () {
     )
   }
 
-
-  $("#button").on("click", function (event) {
+  $("#button").on("click", function(event) {
     event.preventDefault()
     showSearch()
     $("#results").empty()
   })
-
-  // what does this function do?
-  $(document).ready(function () {
-    $("select").formSelect()
-  })
-
-
-
 })

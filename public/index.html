@@ -34,7 +34,6 @@
     ></script>
   </head>
   <body>
-
     <nav class="nav">
       <div class="nav-wrapper">
         <a href="index.html" class="brand-logo center">
@@ -204,34 +203,15 @@
               aria-describedby="searchTerm"
             />
           </div>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="begin-date">Start Date</label>
-            <input
-              type="datetime-local"
-              class="form-control"
-              id="datetime-local"
-            />
+            <input type="date" class="datepicker" id="startDate" />
           </div>
           <div class="form-group">
             <label for="end-date">End Date</label>
-            <input
-              type="datetime-local"
-              class="form-control"
-              id="datetime-local"
-            />
-          </div> -->
-          <div class="input-field col s12">
-            <select id="dates">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="All">All</option>
-              <option value="Future">Future</option>
-              <option value="Past">Past</option>
-              <option value="Today">Today</option>
-              <option value="Last Week">Last Week</option>
-              <option value="Next Week">Next Week</option>
-            </select>
-            <label>Materialize Select</label>
+            <input type="date" class="form-control" id="endDate" />
           </div>
+
           <button
             id="button"
             type="search"
@@ -245,6 +225,7 @@
       </div>
 
       <div id="results"></div>
+
       <div class="footer">
         Created by Rana, Daniel, and Max.
       </div>
@@ -255,7 +236,6 @@
       $(document).ready(function() {
         $(".sidenav").sidenav()
       })
-
     </script>
     <script src="./js/script.js"></script>
     <script src="./js/index.js"></script>
