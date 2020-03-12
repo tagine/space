@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
   const getCalendar = () => {
@@ -7,15 +8,17 @@ $(document).ready(function () {
 
       // logic within here to display the events to the calendar?
     });
+
   }
 
   getCalendar()
 
-  $(document).on("click", ".delete", (event) => {
+  $(document).on("click", ".delete", event => {
     // get event id logic needed here
-    $.delete("/api/events/:id", function (data) {
+    $.delete("/api/events/:id", function(data) {
       // logic within here to display the calendar?
       // refresh calendar?
+
     });
   });
 
@@ -104,3 +107,4 @@ $(document).ready(function () {
     }
   }
 });
+
