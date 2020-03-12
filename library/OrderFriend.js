@@ -89,4 +89,4 @@ class OrderFriend {
   
 }
 
-// module.exports = OrderFriend;
+module.exports = OrderFriend;

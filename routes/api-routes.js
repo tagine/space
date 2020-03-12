@@ -52,7 +52,7 @@ module.exports = function (app) {
   });
 
   // events routes
-  app.get("/events", (req, res) => {
+  app.get("/api/events", (req, res) => {
     db.Event.findAll({
     }).then((dbEvent) => {
       res.json(dbEvent);

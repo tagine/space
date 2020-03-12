@@ -2,7 +2,6 @@ $(document).ready(function () {
   // $(function () {
   $(document).on("click", ".add", function (event) {
     event.preventDefault();
-    console.log("poof")
     // let targetDivId = $(this).parent().attr('id');
     // console.log(event.target.id);
     let targetId = event.target.id;
