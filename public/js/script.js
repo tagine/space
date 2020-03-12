@@ -4,18 +4,19 @@ $(function() {
     let keyword = document.getElementById("keyword").value
     // let date = document.getElementById("dates").value
     let startDate = document.getElementById("startDate").value
-    let startYear = startDate.substring(0, 4)
-    let startMonth = startDate.substring(5, 7)
-    let startDay = startDate.slice(8)
-    startDate = startYear + startMonth + startDay + "00-"
+
+    let momentStart = moment(startDate)
+    let momentStartDate = momentStart.format("YYYYMMDD") + "00-"
+
+    console.log("moment start date: " + momentStartDate)
 
     let endDate = document.getElementById("endDate").value
-    let endYear = endDate.substring(0, 4)
-    let endMonth = endDate.substring(5, 7)
-    let endDay = endDate.slice(8)
-    endDate = endYear + endMonth + endDay + "00"
 
-    let dateRange = startDate + endDate
+    let momentEnd = moment(endDate)
+    let momentEndDate = momentEnd.format("YYYYMMDD") + "00"
+
+    let dateRange = momentStartDate + momentEndDate
+    console.log(momentEndDate)
 
     EVDB.API.call(
       "/events/search",
@@ -27,26 +28,30 @@ $(function() {
       },
 
       function(oData) {
-        // console.log(oData)
+        let listOfEvents = oData.events.event
+        listOfEvents.sort((a, b) => {
+          if (moment(a.start_time) < moment(b.start_time)) {
+            return -1
+          }
+          if (moment(a.start_time) > moment(b.start_time)) {
+            return 1
+          }
+          return 0
+        })
 
-        for (let i = 0; i < oData.events.event.length; i++) {
-          // console.log(oData.events.event[i])
-
-          let eventUrl = oData.events.event[i].url
-          let startTime = oData.events.event[i].start_time
+        for (let i = 0; i < listOfEvents.length; i++) {
+          let eventUrl = listOfEvents[i].url
+          let startTime = listOfEvents[i].start_time
           let momentStartTime = moment(startTime)
           let formattedDate = momentStartTime.format("MMMM Do, YYYY.")
           let formattedTime = momentStartTime.format(" h:mm a.")
-          let cityLocation = oData.events.event[i].city_name
-          let eventTitle = oData.events.event[i].title
+          let cityLocation = listOfEvents[i].city_name
+          let eventTitle = listOfEvents[i].title
           let imgTemplate = ""
-          let apiId = oData.events.event[i].id
+          let apiId = listOfEvents[i].id
 
-          if (
-            oData.events.event[i].image &&
-            oData.events.event[i].image.medium.url
-          ) {
-            let image = oData.events.event[i].image.medium.url
+          if (listOfEvents[i].image && listOfEvents[i].image.medium.url) {
+            let image = listOfEvents[i].image.medium.url
             let eventPicture = ""
             if (image.includes("http")) {
               eventPicture = image
@@ -57,7 +62,7 @@ $(function() {
             imgTemplate = `<p><img src="${eventPicture}"></p>`
           }
 
-          let description = oData.events.event[i].description
+          let description = listOfEvents[i].description
           let eventDescription = ""
 
           if (description !== null) {
@@ -102,4 +107,8 @@ $(function() {
     showSearch()
     $("#results").empty()
   })
+})
+
+$(document).ready(function() {
+  $(".datepicker").datepicker()
 })
