@@ -15,7 +15,7 @@ $(function () {
           description: oData.description,
           time: oData.start_time,
           location: oData.city,
-          link: oData.url
+          link: oData.url,
           // imgUrl: images.image.thumb.url
         }
         postEvent(newEvent);
