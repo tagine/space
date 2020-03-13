@@ -10,6 +10,7 @@ $(document).ready(function () {
         id: targetId
       },
       function (oData) {
+        console.log(oData);
         const newEvent = {
           title: oData.title,
           date: oData.start_time,
@@ -17,7 +18,7 @@ $(document).ready(function () {
           time: oData.start_time,
           location: oData.city,
           link: oData.url,
-          imageLink: oData.image
+          imageLink: oData.images.image.thumb.url
         }
         postEvent(newEvent);
       })
