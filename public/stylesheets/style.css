@@ -78,9 +78,6 @@ input [type="search"]:not(.browser-default):focus:not([readonly]) {
   border-color: #b5823e;
   border-width: 5px;
   margin: 10px;
-  display: inline-block;
-  flex-direction: column;
-  margin: 0 auto;
 }
 
 .footer {
