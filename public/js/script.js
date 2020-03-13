@@ -28,6 +28,7 @@ $(function() {
       },
 
       function(oData) {
+        console.log(oData);
         let listOfEvents = oData.events.event
         listOfEvents.sort((a, b) => {
           if (moment(a.start_time) < moment(b.start_time)) {
