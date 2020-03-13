@@ -1,22 +1,52 @@
+const postEvent = event => {
+  console.log("posting")
+  // post route will need to be changed for heroku deployment??
+  $.post("/api/events", event, () => {
+    console.log("successfully posted")
+  })
+}
+
+function getEvent(apiId) {
+  console.log("in here buddy")
+  event.preventDefault()
+  let targetId = apiId
+  EVDB.API.call(
+    "/events/get",
+    {
+      app_key: "x8RFCpSQ55HDvQCp",
+      id: targetId,
+    },
+    function(oData) {
+      console.log(oData)
+      const newEvent = {
+        title: oData.title,
+        date: oData.start_time,
+        description: oData.description,
+        time: oData.start_time,
+        location: oData.city,
+        link: oData.url,
+        imageLink:
+          oData.images &&
+          oData.images.image &&
+          oData.images.image.thumb &&
+          oData.images.image.thumb.url,
+      }
+      postEvent(newEvent)
+    }
+  )
+}
+
 $(function() {
   function showSearch() {
     let city = document.getElementById("city").value
     let keyword = document.getElementById("keyword").value
-    // let date = document.getElementById("dates").value
     let startDate = document.getElementById("startDate").value
-
     let momentStart = moment(startDate)
     let momentStartDate = momentStart.format("YYYYMMDD") + "00-"
-
-    console.log("moment start date: " + momentStartDate)
-
     let endDate = document.getElementById("endDate").value
-
     let momentEnd = moment(endDate)
     let momentEndDate = momentEnd.format("YYYYMMDD") + "00"
-
     let dateRange = momentStartDate + momentEndDate
-    console.log(momentEndDate)
 
     EVDB.API.call(
       "/events/search",
@@ -28,7 +58,6 @@ $(function() {
       },
 
       function(oData) {
-        console.log(oData);
         let listOfEvents = oData.events.event
         listOfEvents.sort((a, b) => {
           if (moment(a.start_time) < moment(b.start_time)) {
@@ -50,6 +79,7 @@ $(function() {
           let eventTitle = listOfEvents[i].title
           let imgTemplate = ""
           let apiId = listOfEvents[i].id
+          console.log("apiId", apiId)
 
           if (listOfEvents[i].image && listOfEvents[i].image.medium.url) {
             let image = listOfEvents[i].image.medium.url
@@ -90,7 +120,7 @@ $(function() {
           <p><b>Time:</b> ${formattedTime}</p>
           <br>
           <a class="waves-effect waves-light btn" href="${eventUrl}" target="_blank">Event Site</a>
-          <a class="waves-effect waves-light btn add" id="${apiId}" style="margin-left: 25px">Add to My Events!</a>
+          <a class="waves-effect waves-light btn add" onclick="getEvent('${apiId}')" id="${apiId}" style="margin-left: 25px">Add to My Events!</a>
 
               </div>
             </div>

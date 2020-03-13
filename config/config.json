@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "yourRootPassword",
-    "database": "events_db",
-    "host": "127.0.0.1",
+    "username": "brumtafyizaogqeb",
+    "password": "keo40fi1vxokixad",
+    "database": "fk78mc67dz4tkcbh",
+    "host": "dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
