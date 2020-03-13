@@ -29,6 +29,9 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    imageLink: {
+      type: DataTypes.TEXT,
     }
   });
   return Event;
