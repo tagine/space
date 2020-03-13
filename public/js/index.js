@@ -2,8 +2,6 @@ $(document).ready(function () {
   // $(function () {
   $(document).on("click", ".add", function (event) {
     event.preventDefault();
-    // let targetDivId = $(this).parent().attr('id');
-    // console.log(event.target.id);
     let targetId = event.target.id;
     EVDB.API.call(
       "/events/get",
@@ -26,8 +24,8 @@ $(document).ready(function () {
   });
 
   const postEvent = (event) => {
-    // post route will need to be changed for heroku deployment
-    $.post("http://localhost:8080/api/events", event, () => {
+    // post route will need to be changed for heroku deployment??
+    $.post("/api/events", event, () => {
       console.log("successfully posted")
       // window redirect?
       // window.location.href = "/calendar";

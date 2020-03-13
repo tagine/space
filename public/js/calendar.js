@@ -5,48 +5,35 @@ $(document).ready(function () {
 
     $.get("/api/events", function (data) {
       orderEvents(data); // this will order the events saved in db
-
-      // orderFriend.order(data);
       console.log(data);
-      // logic within here to display the calendar?
-      data.forEach(calendarObject => {
-        //run a conditional to check what key you're on create the new div element then append it to card info in line 15 and 16
-        let cardContent =  $("#cardinfo");
-        let listingDiv = cardContent.append("<div></div>");
-        listingDiv.addClass("card");
-        Object.entries(calendarObject).forEach(([key,value]) => {
-          if(key==="title"){
-            console.log(value);
-            let titleDiv = listingDiv.append("<div></div>");
-            let title = titleDiv.append("<h3></h3>").text(value);
-          }
-          // if(key==="date"){
-          //   console.log(value);
-          //   let dateDiv = dateDiv.append("<div></div>");
-          //   let date = dateDiv.append("<p></p>").text(value);
-          // }
-          // let imageDiv = listingDiv.append("<div></div>");
-          // let image = imageDiv.append("<img></img>").attr("src", src1);
-          // console.log(value);
-        })
-        });
+      $("#cardinfo").empty();
+      for (const event of data) {
+        let id = event.id;
+        let title = event.title;
+        $("#cardinfo").append(`<div class="card" id="card${id}">${title}</div>`)
+        $(`#card${id}`).append(`<p>${event.description}</p>`);
+        $(`#card${id}`).append(`
+        <button class="btn btn-primary delete" id="delete${id}" type="search">
+        <i class="fa fa-search"></i><h8> Remove Event from Calendar</h8></button>
+        `);
+      }
     });
-
   }
 
   getCalendar()
 
   $(document).on("click", ".delete", event => {
+    event.preventDefault();
     // get event id logic needed here
     $.delete("/api/events/:id", function(data) {
       // logic within here to display the calendar?
       // refresh calendar?
+      console.log(event.target.id)
 
     });
   });
 
   const orderEvents = (eventArray) => {
-    console.log("poof")
     zeroRemover(eventArray);
     let orderedDates = orderByYear(eventArray);
     return orderedDates;
