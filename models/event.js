@@ -32,6 +32,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     imageLink: {
       type: DataTypes.TEXT,
+      allowNull: true
     }
   });
   return Event;
