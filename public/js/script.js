@@ -25,7 +25,7 @@ function getEvent(apiId) {
         time: oData.start_time,
         location: oData.city,
         link: oData.url,
-        imageLink:
+        imageLink: 
           oData.images &&
           oData.images.image &&
           oData.images.image.thumb &&

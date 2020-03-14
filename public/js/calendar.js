@@ -87,18 +87,33 @@ const getCalendar = () => {
     for (const event of data) {
       let id = event.id
       let title = event.title
-      $("#cardinfo").append(`<div class="card" id="card${id}">${title}</div>`)
+      $("#cardinfo").append(`<div class="card" id="card${id}"></div>`)
+      $(`#card${id}`).append(`<h4>${title}</h4>`)
       $(`#card${id}`).append(`<img src="${event.imageLink}">`)
       $(`#card${id}`).append(`<p>${event.description}</p>`)
       $(`#card${id}`).append(`
-      <button class="btn btn-primary" onclick="deleteEvent(${id})" type="search">
-      <i class="fa fa-search"></i><h8> Remove Event from Calendar</h8></button>
+      <form action="${event.link}" method="get" target="_blank">
+      <button class="btn btn-primary" type="submit"><h8> Go To Event Listing</h8></button>
+      `)
+      $(`#card${id}`).append(`
+      <button class="btn btn-primary" onclick="deleteEvent(${id})" type="delete">
+      <i class="fa fa-trash"></i><h8> Remove Event from Calendar</h8></button>
       `)
     }
   })
 }
 
 function deleteEvent(id) {
+  $.ajax({
+    url: `/api/events/${id}`,
+    method: "DELETE",
+    success: function(data) {
+      getCalendar()
+    },
+  })
+}
+
+function linkToEvent(id) {
   $.ajax({
     url: `/api/events/${id}`,
     method: "DELETE",
