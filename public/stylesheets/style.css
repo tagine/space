@@ -1,14 +1,33 @@
-* {
+/* * {
   font-family: "Roboto", "Oswald", "Raleway", sans-serif;
-}
+} */
 
 .logo {
   fill: #4e2f67;
 }
 
+h1 {
+  box-shadow: 5px 10px #b5823e;
+  color: #4e2f67;
+  font-family: "Oswald", sans-serif;
+}
+
 .h2 {
   color: #4e2f67;
   border-bottom: #b5823e;
+}
+
+h8 {
+  font-family: "roboto", sans-serif;
+}
+
+h6 {
+  color: #ffffff;
+  font-family: "roboto", sans-serif;
+}
+
+h7 {
+  font-family: "Roboto", sans-serif;
 }
 
 .nav-wrapper {
@@ -19,6 +38,32 @@
 
 .nav {
   background-color: #b5823e !important ;
+}
+
+.sidenav {
+  background-color: #b5823e !important ;
+  opacity: 85%;
+
+}
+
+/* .date-text {
+  background-color: #4e2f67;
+} */
+
+/* .modal-content {
+  background-color: #4e2f67;
+} */
+
+.datepicker-date-display {
+  background-color: #4e2f67;
+}
+
+.active{
+  color: #4e2f67;
+}
+
+li {
+  color: #ffffff;
 }
 
 form.signup,
@@ -46,17 +91,17 @@ form.login {
   padding: 10px;
 }
 
-h1 {
-  box-shadow: 5px 10px #b5823e;
-  color: #4e2f67;
-  font-family: "Oswald", sans-serif;
-}
-
 #searchBtn,
 #clearBtn,
-#addBtn {
-  background-color: slategray;
+#addBtn,
+.btn {
+  background-color: #4e2f67 !important;
   border-color: grey;
+}
+
+.btn-flat,
+.datepick-day-button {
+  color: #4e2f67;
 }
 
 .searchbox,

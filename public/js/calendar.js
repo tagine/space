@@ -88,7 +88,7 @@ const getCalendar = () => {
       let id = event.id
       let title = event.title
       $("#cardinfo").append(`<div class="card" id="card${id}"></div>`)
-      $(`#card${id}`).append(`<h4>${title}</h4>`)
+      $(`#card${id}`).append(`<h4><b>${title}</b></h4>`)
       $(`#card${id}`).append(`<img src="${event.imageLink}">`)
       $(`#card${id}`).append(`<p>${event.description}</p>`)
       $(`#card${id}`).append(`
