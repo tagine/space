@@ -89,6 +89,7 @@ const getCalendar = () => {
       let title = event.title
       $("#cardinfo").append(`<div class="card" id="card${id}"><h4><b>${title}</b></h4></div>`)
       $(`#card${id}`).append(`<img src="${event.imageLink}">`)
+      $(`#card${id}`).append(`<div class="date">${event.time}</div>`)
       $(`#card${id}`).append(`<p>${event.description}</p>`)
       $(`#card${id}`).append(`
       <button class="btn btn-primary" onclick="deleteEvent(${id})" type="search">
