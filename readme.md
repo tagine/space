@@ -22,3 +22,6 @@
 
 ## Deployed app
 Demo here: https://radiant-river-70166.herokuapp.com/index.html
+
+![screenshot1.png]
+![screenshot2.png]
